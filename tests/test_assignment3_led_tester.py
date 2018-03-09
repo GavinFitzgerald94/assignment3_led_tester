@@ -79,3 +79,8 @@ def test_instructions_parsing_turn_on_22_77():
     assert on.group(3) == "2"
     assert on.group(4) == "7"
     assert on.group(5) == "7"
+    
+def test_count():
+    ledTester = led_tester.LEDTester(10)
+    ledTester.apply("turn on 0,0 through 9,9")
+    assert ledTester.count() == 100

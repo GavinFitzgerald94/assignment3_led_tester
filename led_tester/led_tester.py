@@ -25,17 +25,32 @@ class LEDTester:
             point2_x = on.group(4)
             point2_y = on.group(5)
             
+            for i in range(int(point1_x), int(point2_x)+1):
+                for j in range(int(point1_y), int(point2_y)+1):
+                    self.lights[i][j] = True
+            
         elif off:
             point1_x = off.group(2)
             point1_y = off.group(3)
             point2_x = off.group(4)
             point2_y = off.group(5)
             
+            for i in range(int(point1_x), int(point2_x)+1):
+                for j in range(int(point1_y), int(point2_y)+1):
+                    self.lights[i][j] = False
+            
         elif switch:
             point1_x = switch.group(2)
             point1_y = switch.group(3)
             point2_x = switch.group(4)
             point2_y = switch.group(5)
+            
+            for i in range(int(point1_x), int(point2_x)+1):
+                for j in range(int(point1_y), int(point2_y)+1):
+                    if self.lights[i][j] == True:
+                        self.lights[i][j] = False
+                    else:
+                        self.lights[i][j] = True
     
         
     def count(self):

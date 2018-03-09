@@ -3,14 +3,22 @@
 """Console script for assignment3_led_tester."""
 import sys
 import click
-
+click.disable_unicode_literals_warning = True
 
 @click.command()
-def main(args=None):
-    """Console script for assignment3_led_tester."""
-    click.echo("Replace this message by putting your code into "
-               "assignment3_led_tester.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
+@click.option("--input", default=None, help="input URI (file or URL)")
+def main(input=None):
+    
+    print("input", input)
+    
+    N, instructions = parseFile(input)
+
+    ledTester = LEDTester(N)
+
+    for instruction in instructions:
+        ledTester.apply(instruction)
+
+    print('#occupied: ', ledTester.count()) 
     return 0
 
 

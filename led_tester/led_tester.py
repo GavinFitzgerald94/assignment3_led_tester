@@ -9,6 +9,7 @@ class LEDTester:
     
     def __init__(self, N):
         self.lights = [[False]*N for _ in range(N)]
+        self.N = N
         
     def apply(self, led_cmd):
         
@@ -25,6 +26,11 @@ class LEDTester:
             point2_x = on.group(4)
             point2_y = on.group(5)
             
+            if int(point2_x) >= self.N:
+                point2_x = self.N-1
+            if int(point2_y) >= self.N:
+                point2_y = self.N-1
+            
             for i in range(int(point1_x), int(point2_x)+1):
                 for j in range(int(point1_y), int(point2_y)+1):
                     self.lights[i][j] = True
@@ -35,6 +41,11 @@ class LEDTester:
             point2_x = off.group(4)
             point2_y = off.group(5)
             
+            if int(point2_x) >= self.N:
+                point2_x = self.N-1
+            if int(point2_y) >= self.N:
+                point2_y = self.N-1
+            
             for i in range(int(point1_x), int(point2_x)+1):
                 for j in range(int(point1_y), int(point2_y)+1):
                     self.lights[i][j] = False
@@ -44,6 +55,11 @@ class LEDTester:
             point1_y = switch.group(3)
             point2_x = switch.group(4)
             point2_y = switch.group(5)
+            
+            if int(point2_x) >= self.N:
+                point2_x = self.N-1
+            if int(point2_y) >= self.N:
+                point2_y = self.N-1
             
             for i in range(int(point1_x), int(point2_x)+1):
                 for j in range(int(point1_y), int(point2_y)+1):

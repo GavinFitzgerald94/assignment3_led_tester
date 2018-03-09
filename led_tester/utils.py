@@ -5,7 +5,14 @@
 def parseFile(input):
 
     if input.startswith("http"):
-        pass
+        N, instructions = None, []
+        uri = input
+        r = requests.get(uri).text
+        led_commands = r.splitlines()
+        N = int(led_commands[0])
+        for i in range(1, len(led_commands)):
+                instructions.append(led_commands[i])
+        return N, instructions
     else:
         # read from disk
         N, instructions = None, []

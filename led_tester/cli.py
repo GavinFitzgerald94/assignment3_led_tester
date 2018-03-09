@@ -3,6 +3,8 @@
 """Console script for assignment3_led_tester."""
 import sys
 import click
+from utils import *
+from led_tester import *
 click.disable_unicode_literals_warning = True
 
 @click.command()

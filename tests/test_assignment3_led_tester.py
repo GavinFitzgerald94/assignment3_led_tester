@@ -34,3 +34,14 @@ def test_read_file_http():
     N, instructions = utils.parseFile(ifile)
     assert N == 1000
     assert instructions[0] == 'turn off 660,55 through 986,197'
+    
+def test_instructions_parsing_turn_on():
+    ifile = "./data/test_data.txt"
+    N, instructions = utils.parseFile(ifile)
+    on_pat = re.compile(".*(turn on)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*")
+    on = on_pat.match(instructions[0])
+    assert on.group(1) == "turn on"
+    assert on.group(2) == "0"
+    assert on.group(3) == "0"
+    assert on.group(4) == "9"
+    assert on.group(5) == "9"

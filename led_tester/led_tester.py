@@ -54,4 +54,12 @@ class LEDTester:
     
         
     def count(self):
-        pass
+        count = 0
+        numrows = len(self.lights)
+        numcols = len(self.lights[0])
+        
+        for i in range(0, numrows):
+                for j in range(0, numcols):
+                    if self.lights[i][j] == True:
+                        count += 1
+        return count

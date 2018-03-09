@@ -10,7 +10,7 @@ import pytest
 
 from click.testing import CliRunner
 
-from assignment3_led_tester import assignment3_led_tester
+from led_tester import *
 from assignment3_led_tester import cli
 
 

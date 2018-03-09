@@ -22,12 +22,6 @@ A python project to read instructions to turn on or off lights on a LED grid and
 * Free software: GNU General Public License v3
 * Documentation: https://assignment3-led-tester.readthedocs.io.
 
-
-Features
---------
-
-* TODO
-
 Credits
 -------
 

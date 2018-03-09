@@ -14,6 +14,7 @@ from click.testing import CliRunner
 from led_tester import *
 from led_tester import cli
 from led_tester import utils
+from led_tester import led_tester
 
 
 @pytest.fixture
@@ -83,4 +84,9 @@ def test_instructions_parsing_turn_on_22_77():
 def test_count():
     ledTester = led_tester.LEDTester(10)
     ledTester.apply("turn on 0,0 through 9,9")
+    assert ledTester.count() == 100
+    
+def test_commands_outside_grid_space():
+    ledTester = led_tester.LEDTester(10)
+    ledTester.apply("turn on 0,0 through 20,20")
     assert ledTester.count() == 100

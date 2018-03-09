@@ -33,4 +33,4 @@ def test_read_file_http():
     ifile = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3.txt"
     N, instructions = utils.parseFile(ifile)
     assert N == 1000
-    assert instructions[0] == ['turn off 660,55 through 986,197']
+    assert instructions[0] == 'turn off 660,55 through 986,197'

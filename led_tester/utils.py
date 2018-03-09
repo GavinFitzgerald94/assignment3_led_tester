@@ -2,6 +2,8 @@
 @author: gavin
 '''
 
+import requests
+
 def parseFile(input):
 
     if input.startswith("http"):

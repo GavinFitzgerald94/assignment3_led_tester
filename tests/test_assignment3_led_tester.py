@@ -11,7 +11,7 @@ import pytest
 from click.testing import CliRunner
 
 from led_tester import *
-from assignment3_led_tester import cli
+from led_tester import cli
 
 
 @pytest.fixture
